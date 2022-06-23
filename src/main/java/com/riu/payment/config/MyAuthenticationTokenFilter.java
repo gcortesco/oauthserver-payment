@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+
 @Configuration
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class MyAuthenticationTokenFilter implements Filter {
@@ -30,7 +32,11 @@ public class MyAuthenticationTokenFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         LOGGER.info("Logging Request  {} : {}", request.getMethod(), request.getRequestURI());
         //call next filter in the filter chain
-        filterChain.doFilter(new CustomWrappedRequest(request), response);
+
+        if (request.getContentType().equals(APPLICATION_JSON.toString())) {
+           request = new CustomWrappedRequest(request);
+        }
+        filterChain.doFilter(request, response);
         LOGGER.info("Logging Response :{}", response.getContentType());
     }
 }

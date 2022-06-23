@@ -2,6 +2,7 @@ package com.riu.payment.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.riu.payment.model.OauthRequest;
+import com.sun.xml.internal.ws.encoding.ContentType;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.util.Collections;
@@ -51,8 +52,8 @@ public class CustomWrappedRequest extends HttpServletRequestWrapper {
         Map<String, String[]> allParameters =  new TreeMap<String, String[]>();
         allParameters.putAll(super.getParameterMap());
         if (oauthRequest != null) {
-            allParameters.put("client_id", new String[]{oauthRequest.getUsername()});
-            allParameters.put("client_secret", new String[]{oauthRequest.getPassword()});
+            allParameters.put("client_id", new String[]{oauthRequest.getClient_id()});
+            allParameters.put("client_secret", new String[]{oauthRequest.getClient_secret()});
             allParameters.put("grant_type", new String[]{oauthRequest.getGrant_type()});
         }
         //Return an unmodifiable collection because we need to uphold the interface contract.
