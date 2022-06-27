@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
@@ -14,14 +15,14 @@ import java.io.IOException;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @Configuration
-@Order(1)
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class JsonAuthenticationTokenFilter implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonAuthenticationTokenFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        LOGGER.info("########## Initiating Custom filter ##########");
+        LOGGER.info("########## Initiating  JsonAuthenticationTokenFilter  ##########");
     }
 
 

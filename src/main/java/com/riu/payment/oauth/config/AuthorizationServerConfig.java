@@ -21,7 +21,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public static final int REFRESH_TOKEN_VALIDITY_SECONDS = 6 * 60 * 60;
 
 
-
     @Value("${user.oauth.clientId}")
     private String clientId;
     @Value("${user.oauth.clientSecret}")
