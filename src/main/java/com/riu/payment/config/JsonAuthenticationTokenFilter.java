@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
@@ -15,10 +14,10 @@ import java.io.IOException;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @Configuration
-@Order(Ordered.HIGHEST_PRECEDENCE)
-public class MyAuthenticationTokenFilter implements Filter {
+@Order(1)
+public class JsonAuthenticationTokenFilter implements Filter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyAuthenticationTokenFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonAuthenticationTokenFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -32,8 +31,7 @@ public class MyAuthenticationTokenFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         LOGGER.info("Logging Request  {} : {}", request.getMethod(), request.getRequestURI());
         //call next filter in the filter chain
-
-        if (request.getContentType().equals(APPLICATION_JSON.toString())) {
+        if (APPLICATION_JSON.toString().equals( request.getContentType())) {
            request = new CustomWrappedRequest(request);
         }
         filterChain.doFilter(request, response);

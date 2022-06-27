@@ -2,8 +2,7 @@ package com.riu.payment.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.riu.payment.model.OauthRequest;
-import com.sun.xml.internal.ws.encoding.ContentType;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+
 
 import java.util.Collections;
 import java.util.Enumeration;

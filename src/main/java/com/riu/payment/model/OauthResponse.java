@@ -2,13 +2,15 @@ package com.riu.payment.model;
 
 public class OauthResponse {
 
-    private String access_token;
 
-    public String getAccess_token() {
-        return access_token;
+    private String sub;
+
+
+    public String getSub() {
+        return sub;
     }
 
-    public void setAccess_token(String access_token) {
-        this.access_token = access_token;
+    public void setSub(String sub) {
+        this.sub = sub;
     }
 }
