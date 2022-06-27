@@ -1,4 +1,4 @@
-package com.riu.payment.controller;
+package com.riu.payment.oauth.controller;
 
 
 import com.riu.payment.model.OauthResponse;

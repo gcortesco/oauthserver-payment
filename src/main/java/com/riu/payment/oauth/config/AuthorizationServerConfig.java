@@ -1,4 +1,4 @@
-package com.riu.payment.config;
+package com.riu.payment.oauth.config;
 
 
 import org.springframework.beans.factory.annotation.Value;

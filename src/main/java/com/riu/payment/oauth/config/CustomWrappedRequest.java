@@ -1,4 +1,4 @@
-package com.riu.payment.config;
+package com.riu.payment.oauth.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.riu.payment.model.OauthRequest;

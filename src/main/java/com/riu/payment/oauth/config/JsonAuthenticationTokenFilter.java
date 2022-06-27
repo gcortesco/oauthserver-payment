@@ -1,4 +1,4 @@
-package com.riu.payment.config;
+package com.riu.payment.oauth.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
